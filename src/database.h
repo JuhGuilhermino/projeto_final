@@ -34,5 +34,7 @@ class Database {
         bool valid_password(int user_id, std::string password);
 
         void add_user(std::string name, std::string username, std::string password);
+
+        int search_book(std::string title);
      
 };

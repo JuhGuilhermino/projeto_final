@@ -35,6 +35,13 @@ void Simulation::process_events(){
     } else if (state == e_states::PROFILE){
         std::cin >> menu_option;
         
+    } else if (state == e_states::SEARCHING){
+        std::cin >> title;
+
+    } else if (state == e_states::VIEW_BOOK){
+
+    } else if (state == e_states::SAVING){
+
     } else if (state == e_states::QUITTING){
         std::cin >> quitting_option;
         
@@ -93,7 +100,7 @@ void Simulation::update(){
         
     } else if (state == e_states::PROFILE){
         if (menu_option == e_menu_option::SEARCH_BOOK){
-            end_loop = true;
+            state = e_states::SEARCHING;
 
         } else if (menu_option == e_menu_option::SEARCH_LIBRARY){
             end_loop = true;
@@ -108,6 +115,20 @@ void Simulation::update(){
             std::cout << "\n ERRO: operação inválida!\n";
         }
         
+    } else if (state == e_states::SEARCHING){
+        if (data.search_book(title) < 0){
+            std::cout << "\n ERRO: livro não encontrado.\n";
+
+        } else {
+            state = e_states::VIEW_BOOK;
+        }
+
+    } else if (state == e_states::VIEW_BOOK){
+        end_loop = true;
+
+    } else if (state == e_states::SAVING){
+
+
     } else if (state == e_states::QUITTING){
         if (quitting_option == e_quitting_option::STAY){
             // Atualiza estado para 
@@ -165,6 +186,16 @@ void Simulation::render(){
         std::cout << "  3 - Registrar histórico de leitura.\n";
         std::cout << "  4 - Sair.\n";
         std::cout << "Informe o número da operação que deseja realizar >>>   ";
+    } else if (state == e_states::SEARCHING){
+        std::cout << "----------------------------------------------------------------\n";
+        std::cout << "                       PESQUISAR LIVRO                          \n";
+        std::cout << "----------------------------------------------------------------\n";
+        std::cout << "Informe o nome do livro: ";
+
+    } else if (state == e_states::VIEW_BOOK){
+
+    } else if (state == e_states::SAVING){
+
     } else if (state == e_states::QUITTING){
         std::cout << "----------------------------------------------------------------\n";
         std::cout << "OPÇÕES:\n";

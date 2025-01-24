@@ -51,4 +51,12 @@ void Database::add_user(std::string name, std::string username, std::string pass
     users.push_back(new_user);
 }
 
-
+int Database::search_book(std::string title){
+    for (int i = 0; i < books.size(); i++){
+        if (title == books[i].get_title()){
+            return i;
+            i = books.size();
+        }
+    }
+    return -1;
+}

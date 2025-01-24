@@ -58,6 +58,7 @@ class Simulation {
         std::string name;       //< Nome de susuário nahora do cadastro
         int menu_option;        //< Opção do menu do usuário
         int quitting_option;    //< Opção do menu de saida
+        std::string title;      //< Titulo do livro buscado
 
 
     public:
