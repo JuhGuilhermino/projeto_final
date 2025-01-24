@@ -6,6 +6,7 @@ class User {
         struct Book{
             int id;
             int num_pages;
+            std::string status;
             int read_pages;
             int stars;
         };

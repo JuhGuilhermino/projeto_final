@@ -59,6 +59,8 @@ class Simulation {
         int menu_option;        //< Opção do menu do usuário
         int quitting_option;    //< Opção do menu de saida
         std::string title;      //< Titulo do livro buscado
+        int book;               //< Armazena o ide do livro que foi encontrado em uma busca
+        char save;              //< Opção de salvar ou não o livro
 
 
     public:

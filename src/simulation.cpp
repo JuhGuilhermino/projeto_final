@@ -39,6 +39,7 @@ void Simulation::process_events(){
         std::cin >> title;
 
     } else if (state == e_states::VIEW_BOOK){
+        std::cin >> save;
 
     } else if (state == e_states::SAVING){
 
@@ -108,7 +109,7 @@ void Simulation::update(){
         } else if (menu_option == e_menu_option::READING_PROGRESS){
             end_loop = true;
 
-        } if (menu_option == e_menu_option::QUIT){
+        } else if (menu_option == e_menu_option::QUIT){
             state = e_states::QUITTING;
 
         } else {
@@ -120,14 +121,27 @@ void Simulation::update(){
             std::cout << "\n ERRO: livro não encontrado.\n";
 
         } else {
+            book = data.search_book(title);
             state = e_states::VIEW_BOOK;
         }
 
     } else if (state == e_states::VIEW_BOOK){
-        end_loop = true;
+        if (save == 'S' or save == 's'){
+            // Muda o estado
+            state = e_states::SAVING;
+
+        } else if (save == 'N' or save == 'n'){
+            // Volta para o perfil
+            state = e_states::PROFILE;
+
+        } else {
+            // Continua na mesma página
+            std::cout << "\n ERRO: operação inválida!\n";
+        }
+        
 
     } else if (state == e_states::SAVING){
-
+        end_loop = true;
 
     } else if (state == e_states::QUITTING){
         if (quitting_option == e_quitting_option::STAY){
@@ -193,6 +207,12 @@ void Simulation::render(){
         std::cout << "Informe o nome do livro: ";
 
     } else if (state == e_states::VIEW_BOOK){
+        std::cout << "---\nTÍTULO: " << data.get_book(book).get_title() << "\n";
+        std::cout << "AUTOR(A): " << data.get_book(book).get_author() << "\n";
+        std::cout << "EDITORA: " << data.get_book(book).get_publishing_company() << "\n";
+        std::cout << "ANO DA EDIÇÃO: " << data.get_book(book).get_edition_year() << "\n";
+        std::cout << "Nº DE PÁGINAS: " << data.get_book(book).get_num_pages() << "\n";
+        std::cout << "---\nDeseja salvar o livro na sua biblioteca? (S/N) >>>   ";
 
     } else if (state == e_states::SAVING){
 
