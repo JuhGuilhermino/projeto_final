@@ -45,3 +45,15 @@ int User::get_qtd_abandoned(){
     return qtd_abandoned;
 }
 
+void User::add_book(int id, int num_pages, int read_pages, int stars){
+    Book new_book;
+    new_book.id = id;
+    new_book.num_pages = num_pages;
+    new_book.read_pages = read_pages;
+    new_book.stars = stars;
+}
+
+int User::library_size(){
+    return library.size();
+} 
+

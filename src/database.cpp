@@ -27,3 +27,28 @@ Book Database::get_book(int id){
 User Database::get_user(int id){
     return users[id];
 }
+
+int Database::search_user(std::string username){
+    for (int i = 0; i < users.size(); i++){
+        if (username == users[i].get_user_name()){
+            return i;
+            i = users.size();
+        }
+    }
+    return -1;
+}
+
+bool Database::valid_password(int user_id, std::string password){
+    if (users[user_id].get_password() == password){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+void Database::add_user(std::string name, std::string username, std::string password){
+    User new_user(users.size(), name, username, password, 0, 0, 0, 0);
+    users.push_back(new_user);
+}
+
+

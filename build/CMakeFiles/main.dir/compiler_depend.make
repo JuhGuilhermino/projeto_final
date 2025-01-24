@@ -770,17 +770,21 @@ CMakeFiles/main.dir/src/user.cpp.o: /mnt/c/Users/juhgu/Code/Boas_Praticas/projet
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/stl_algobase.h \
+  /usr/include/c++/13/bits/stl_bvector.h \
   /usr/include/c++/13/bits/stl_construct.h \
   /usr/include/c++/13/bits/stl_function.h \
   /usr/include/c++/13/bits/stl_iterator.h \
   /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13/bits/stl_iterator_base_types.h \
   /usr/include/c++/13/bits/stl_pair.h \
+  /usr/include/c++/13/bits/stl_uninitialized.h \
+  /usr/include/c++/13/bits/stl_vector.h \
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
   /usr/include/c++/13/bits/uses_allocator.h \
   /usr/include/c++/13/bits/uses_allocator_args.h \
   /usr/include/c++/13/bits/utility.h \
+  /usr/include/c++/13/bits/vector.tcc \
   /usr/include/c++/13/cctype \
   /usr/include/c++/13/cerrno \
   /usr/include/c++/13/clocale \
@@ -802,6 +806,7 @@ CMakeFiles/main.dir/src/user.cpp.o: /mnt/c/Users/juhgu/Code/Boas_Praticas/projet
   /usr/include/c++/13/string_view \
   /usr/include/c++/13/tuple \
   /usr/include/c++/13/type_traits \
+  /usr/include/c++/13/vector \
   /usr/include/ctype.h \
   /usr/include/endian.h \
   /usr/include/errno.h \

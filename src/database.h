@@ -28,5 +28,11 @@ class Database {
         Book get_book(int id);
 
         User get_user(int id);
+
+        int search_user(std::string username);
+
+        bool valid_password(int user_id, std::string password);
+
+        void add_user(std::string name, std::string username, std::string password);
      
 };

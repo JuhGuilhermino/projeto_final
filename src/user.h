@@ -1,7 +1,15 @@
 #include <string>
+#include <vector>
 
 class User {
     private:
+        struct Book{
+            int id;
+            int num_pages;
+            int read_pages;
+            int stars;
+        };
+
         int id;
         std::string name;
         std::string user_name;
@@ -10,6 +18,8 @@ class User {
         int qtd_reading;
         int qtd_want_to_read;
         int qtd_abandoned;
+        std::vector <Book> library;
+
 
     public:
         User(int m_id, 
@@ -38,5 +48,9 @@ class User {
 
         int get_qtd_want_to_read();
 
-        int get_qtd_abandoned();     
+        int get_qtd_abandoned(); 
+
+        void add_book(int id, int num_pages, int read_pages, int stars);  
+
+        int library_size();  
 };

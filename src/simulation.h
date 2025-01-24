@@ -35,10 +35,29 @@ class Simulation {
             SUBSCRIBE
         };
 
+        enum e_menu_option{
+            SEARCH_BOOK = 1,
+            SEARCH_LIBRARY,
+            READING_PROGRESS,
+            QUIT
+        };
+
+        enum e_quitting_option{
+            STAY = 1,
+            BACK_TO_WELCOME,
+            QUIT_NOW
+        };
+
         int state;              //< Controla fluxo de estados
         bool end_loop = false;  //< Controla o loop
         Database data;          //< Instância do banco de dados do sistema
         int option;             //< Opção de entrada no sistema
+        int user;               //< ID so usuário que está usando o sistema
+        std::string username;   //< Nome no usuário no login
+        std::string password;   //< Senha do usuário no login
+        std::string name;       //< Nome de susuário nahora do cadastro
+        int menu_option;        //< Opção do menu do usuário
+        int quitting_option;    //< Opção do menu de saida
 
 
     public:
