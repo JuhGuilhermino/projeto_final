@@ -9,24 +9,32 @@
  * 
  */
 
-#ifndef SIMULATION.H
-#define SIMULATION.H
-
 #include <string>
+#include <iostream>
 
 class Simulation {
     private:
         //=== Estados que represetam a simulação do sistema.
         enum e_states{
-            STARTING = 0,
-            LOGIN
+            STARTING = 0,  //< Carrega dados
+            WELCOME,       //< Opções de incializaçaõ
+            LOGIN,         //< Realiza login
+            SUBSCRIBING,   //< Realiza cadastro
+            PROFILE,       //< Exibe perfil do usuário e menu
+            LIBRARY,       //< Busca livros na biblioteca pessoal
+            READING_BOOK,  //< Atualiza histórioco de leitura
+            SEARCHING,     //< Busca livros no acervo
+            VIEW_BOOK,     //< Viazualiza dados de um livro
+            SAVING,        //< Salva livro na biblioteca pessoal
+            QUITTING       //< Slava de dados e encerra o sistema
         };
 
         int state;
         std::string user_name;
+        bool end_loop = false;
 
     public:
-        void initialize(int argc, char* argv[]);
+        void initialize();
         
         bool is_over();
 
@@ -37,4 +45,3 @@ class Simulation {
         void render();        
 };
 
-#endif

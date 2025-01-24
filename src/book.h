@@ -9,9 +9,6 @@
  * 
  */
 
-#ifndef BOOK.H
-#define BOOK.H
-
 #include <vector>
 #include <string>
 
@@ -32,4 +29,3 @@ class Book {
     public:
 };
 
-#endif

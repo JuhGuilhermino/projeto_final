@@ -1,6 +1,3 @@
-#ifndef DATABASE.H
-#define DATABASE.H
-
 #include <vector>
 #include <string>
 #include <fstream>
@@ -33,5 +30,3 @@ class Database {
         
                 
 };
-
-#endif

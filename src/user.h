@@ -1,6 +1,3 @@
-#ifndef USER.H
-#define USER.H
-
 #include <string>
 
 class User {
@@ -10,5 +7,3 @@ class User {
     public:
               
 };
-
-#endif

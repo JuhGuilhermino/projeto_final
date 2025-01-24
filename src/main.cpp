@@ -4,7 +4,7 @@ int main(int argc, char* argv[]) {
   Simulation simulation;
 
   // Simulation is a singleton.
-  simulation.initialize(argc, argv);
+  simulation.initialize();
   // The Game Loop.
   while (not simulation.is_over()) {
     simulation.process_events();

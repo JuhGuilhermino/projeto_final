@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 # Nome do projeto
-project(MeuProjeto VERSION 1.0 LANGUAGES CXX)
+project(main VERSION 1.0 LANGUAGES CXX)
 
 # Define o padrão da linguagem C++ (exemplo: C++17)
 set(CMAKE_CXX_STANDARD 17)
