@@ -30,9 +30,15 @@ class Simulation {
             QUITTING       //< Slava de dados e encerra o sistema
         };
 
+        enum e_option{
+            LOG = 1,
+            SUBSCRIBE
+        };
+
         int state;              //< Controla fluxo de estados
         bool end_loop = false;  //< Controla o loop
         Database data;          //< Instância do banco de dados do sistema
+        int option;             //< Opção de entrada no sistema
 
 
     public:
