@@ -13,9 +13,9 @@ add_executable(${PROJECT_NAME}
     src/main.cpp
     src/book.cpp
     src/simulation.cpp
+    src/database.cpp
     src/user.cpp
 )
 
 # Incluir diretórios para cabeçalhos
 target_include_directories(${PROJECT_NAME} PRIVATE include)
-

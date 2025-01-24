@@ -11,6 +11,7 @@
 
 #include <string>
 #include <iostream>
+#include "database.h"
 
 class Simulation {
     private:
@@ -29,9 +30,10 @@ class Simulation {
             QUITTING       //< Slava de dados e encerra o sistema
         };
 
-        int state;
-        std::string user_name;
-        bool end_loop = false;
+        int state;              //< Controla fluxo de estados
+        bool end_loop = false;  //< Controla o loop
+        Database data;          //< Instância do banco de dados do sistema
+
 
     public:
         void initialize();

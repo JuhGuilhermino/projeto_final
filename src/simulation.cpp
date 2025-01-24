@@ -1,7 +1,12 @@
 #include "simulation.h"
 
 void Simulation::initialize(){
-    state = e_states::STARTING;
+    // Carrega dados de livros e usuários cadastrados
+    data.read_books();
+    data.read_users();
+
+    //Inicia os estados
+    state = e_states::STARTING; 
 }
         
 bool Simulation::is_over(){

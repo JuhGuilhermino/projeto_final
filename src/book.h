@@ -27,5 +27,41 @@ class Book {
         int qtd_abandoned;                //< Nº de leitores que salvaram como "abandonado"
         
     public:
+        Book(int m_id, 
+             std::string m_title, 
+             std::string m_author,
+             std::string m_publishing_company,
+             int m_edition_year,
+             int m_num_pages,
+             float m_stars,
+             int m_qtd_read,
+             int m_qtd_reading,
+             int m_qtd_want_to_read,
+             int m_qtd_abandoned);
+
+        ~Book();
+
+        int get_id();
+
+        std::string get_title();
+
+        std::string get_author();
+
+        std::string get_publishing_company();
+
+        int get_edition_year();
+
+        int get_num_pages();
+
+        int get_stars();
+
+        int get_qtd_read();
+
+        int get_qtd_reading();
+
+        int get_qtd_want_to_read();
+
+        int get_qtd_abandonad();
+
 };
 
