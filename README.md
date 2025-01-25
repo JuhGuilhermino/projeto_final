@@ -1,6 +1,6 @@
 # Gerenciador de Arquivos
 
-Esse projeto, desenvolvido por [Júlia Guilhermino](https://github.com/JuhGuilhermino), consiste em um gerenciador pessoal de leituras implementado em C++ utilizando a [[#Arquitetura Game Loop]]. Ele foi utilizado como trabalho final da disciplina de *Boas Práticas de Programação* do *Bacharelado em Ciência da Computação da UFRN.*
+Esse projeto, desenvolvido por [Júlia Guilhermino](https://github.com/JuhGuilhermino), consiste em um gerenciador pessoal de leituras implementado em C++ utilizando a Arquietura Game Loop. Ele foi utilizado como trabalho final da disciplina de *Boas Práticas de Programação* do *Bacharelado em Ciência da Computação da UFRN.*
 
 ## Índice
 
@@ -13,12 +13,12 @@ Esse projeto, desenvolvido por [Júlia Guilhermino](https://github.com/JuhGuilhe
 	- [Arquitetura Game Loop](#arquitetura_game_loop)
 	- [Clean Code](#Clean_Code)
 	- [Programação Defenciva](#Programação_Defensiva)
-- [[#Instalação]]
+- [Instalação](#instalação)
 ---
 ## Sobre
 
 O objetivo desse projeto é desenvolver um sistema de gerenciamento de leituras para um acervo específico como: biblioteca, editora ou um banco de dados de livros, etc. Dessa forma os usuários desse acervo podem ter acesso prévio a lista de obras disponíveis, buscar novas obras, registrar e avaliar suas próprias leituras.
-Essa versão foi feita para ser executada no terminal e utiliza uma [[#Base de Dados]] simples. Baseado nessa estrutura foram definidas as seguintes funcionalidades:
+Essa versão foi feita para ser executada no terminal e utiliza uma base de dados simples. Baseado nessa estrutura foram definidas as seguintes funcionalidades:
 - **Cadastro de Usuário:** solicita alguns dados e cria uma biblioteca pessoal, uma base de dados que permite que usuário salve livros de interesse.
 - **Pesquisar Livros:** buscar livros salvos no acervo.
 - **Salvar Livros:**  armazenar um livro na biblioteca pessoal e classifica-los como "lido", "lendo", "quero ler", "abandonado" .
@@ -35,7 +35,7 @@ Essas funcionalidades e indicadores podem ser facilmente adaptadas e aprimoradas
 A implementação do projeto foi feita na linguagem C++ utilizado o paradigma de orientação a objetos a partir de uma base dados.
 ### Classes
 O projeto possui X classes:
-- **Simulation:**  principal classe do projeto.  Ela controla todo o fluxo do sistema utilizando a [[#Arquitetura Game Loop]]. 
+- **Simulation:**  principal classe do projeto.  Ela controla todo o fluxo do sistema utilizando a arquitetura game loop. 
 - **Book:** representa um livro do acervo com os atributos referente ao projeto da base de dados. Seus métodos permitem o acesso aos atributos do livro e realizam atualizações dos dados.
 - **User:** armazena dados de cadastro do usuário e um vetor com os livros salvos na sua biblioteca particular. Seus métodos permitem acesso aos dados do usuário para validação de login, estatísticas de leitura, busca por livros e etc. 
 - **Database:** possui dois vetores com os livros e usuários cadastrados no sistema. É através dela que a classe *Simulation* acessa os dados. Também é responsável pela validação do login e cadastro de usuários.
