@@ -1,3 +1,0 @@
-/mnt/c/Users/juhgu/Code/Boas_Praticas/projeto_final/build/CMakeFiles/main.dir
-/mnt/c/Users/juhgu/Code/Boas_Praticas/projeto_final/build/CMakeFiles/edit_cache.dir
-/mnt/c/Users/juhgu/Code/Boas_Praticas/projeto_final/build/CMakeFiles/rebuild_cache.dir
