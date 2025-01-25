@@ -1,19 +1,22 @@
 # Gerenciador de Arquivos
 
-Esse projeto, desenvolvido por [Júlia Guilhermino](https://github.com/JuhGuilhermino), consiste em um gerenciador pessoal de leituras implementado em C++ utilizando a [[#Arquitetura Game Loop]]. Ele foi utilizado como trabalho final da disciplina de *Boas Práticas de Programação* do *Bacharelado em Ciência da Computação da UFRN.* 
-#### Índice
-- [[#Sobre]]
-- [[#Implementação]]
-	- [[#Base de Dados]]
-	- [[#Classes]]
-- [[#Boas Práticas Implementadas]]
-	-  [[#Arquitetura Game Loop]]
-	- [[#Clean Code]]
-	- [[#Testes]]
+Esse projeto, desenvolvido por [Júlia Guilhermino](https://github.com/JuhGuilhermino), consiste em um gerenciador pessoal de leituras implementado em C++ utilizando a [[#Arquitetura Game Loop]]. Ele foi utilizado como trabalho final da disciplina de *Boas Práticas de Programação* do *Bacharelado em Ciência da Computação da UFRN.*
+
+## Índice
+
+- [Sobre](#sobre)
+- [Implementação](#implementação)
+	- [Base de Dados](#base_de_dados)
+	- [Classes](#classes)
+- [Status](#status-da-implementação)
+- [Boas Práticas Implementadas](#boas_práticas_implementadas)
+	- [Arquitetura Game Loop](#arquitetura_game_loop)
+	- [Clean Code](#Clean_Code)
+	- [Programação Defenciva](#Programação_Defensiva)
 - [[#Instalação]]
 ---
 ## Sobre
----
+
 O objetivo desse projeto é desenvolver um sistema de gerenciamento de leituras para um acervo específico como: biblioteca, editora ou um banco de dados de livros, etc. Dessa forma os usuários desse acervo podem ter acesso prévio a lista de obras disponíveis, buscar novas obras, registrar e avaliar suas próprias leituras.
 Essa versão foi feita para ser executada no terminal e utiliza uma [[#Base de Dados]] simples. Baseado nessa estrutura foram definidas as seguintes funcionalidades:
 - **Cadastro de Usuário:** solicita alguns dados e cria uma biblioteca pessoal, uma base de dados que permite que usuário salve livros de interesse.
@@ -28,7 +31,7 @@ Essas funcionalidades e indicadores podem ser facilmente adaptadas e aprimoradas
 
 ---
 ## Implementação
-___
+
 A implementação do projeto foi feita na linguagem C++ utilizado o paradigma de orientação a objetos a partir de uma base dados.
 ### Classes
 O projeto possui X classes:
@@ -82,6 +85,7 @@ O "status" do livro na biblioteca é representado na base de dados por um inteir
 	3 - abandonado.
 ___
 ## Status da Implementação
+
 Check-list das etapas de implementação do projeto:
 - [x] Planejamento do escopo do projeto, definição dos estados e elaboração do diagrama de estados.
 - [ ] Base de dados.
@@ -106,7 +110,7 @@ Check-list das etapas de implementação do projeto:
 
 ___
 ## Boas Práticas Implementadas
-___
+
 Os três assuntos de boas práticas escolhidos para implementar foram: padrões de projeto (com a arquitetura game loop), testes e clean code.
 ### Arquitetura Game Loop
 Esse padrão de projeto enxerga um programa como um ciclo de repetição de três métodos: 
@@ -116,6 +120,7 @@ Esse padrão de projeto enxerga um programa como um ciclo de repetição de trê
 Além deles ela possui dois métodos que auxiliam no gerenciamento do loop:
 - `void initialize()` : chama os métodos da classe `Database` para realizar da base de dados.
 - `bool is_over()`: controla a execução do loop.
+
 Para controlar o fluxo de ações foram definidos os seguintes estados:
 - **STARTING:** carrega todas as variáveis e dados necessários para o funcionamento do sistema;
 - **WELCOME:** pergunta se o usuário deseja fazer o *login* ou realizar o *cadastro no sistema*;
@@ -206,7 +211,7 @@ if (data.search_user(username) < 0){
 ```
 ___
 ## Instalação
-___
+
 Instruções para executar e rodar o código:
 1. Criar uma pasta `build` e dentro dela:
 	1. Executar o comando `cmake ..`. e em seguida `make` para gerar o executável.
