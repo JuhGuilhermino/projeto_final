@@ -1,12 +1,20 @@
 #include <string>
 #include <vector>
+#include <iostream>
 
 class User {
     private:
+        enum e_reading_status{
+            READ = 1,
+            READING,
+            WANT_TO_READ,
+            ABANDONED
+        };
+
         struct Book{
             int id;
             int num_pages;
-            std::string status;
+            int status;
             int read_pages;
             int stars;
         };
@@ -19,10 +27,12 @@ class User {
         int qtd_reading;
         int qtd_want_to_read;
         int qtd_abandoned;
-        std::vector <Book> library;
+        
 
 
     public:
+        std::vector <Book> library;
+
         User(int m_id, 
             std::string m_name,
             std::string m_user_name,
@@ -51,7 +61,7 @@ class User {
 
         int get_qtd_abandoned(); 
 
-        void add_book(int id, int num_pages, int read_pages, int stars);  
+        void add_book(int id, int status, int num_pages, int read_pages);  
 
         int library_size();  
 };

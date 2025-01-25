@@ -23,7 +23,7 @@ class Simulation {
             SUBSCRIBING,   //< Realiza cadastro
             PROFILE,       //< Exibe perfil do usuário e menu
             LIBRARY,       //< Busca livros na biblioteca pessoal
-            READING_BOOK,  //< Atualiza histórioco de leitura
+            READING_PROGRESS,  //< Atualiza histórioco de leitura
             SEARCHING,     //< Busca livros no acervo
             VIEW_BOOK,     //< Viazualiza dados de um livro
             SAVING,        //< Salva livro na biblioteca pessoal
@@ -38,7 +38,7 @@ class Simulation {
         enum e_menu_option{
             SEARCH_BOOK = 1,
             SEARCH_LIBRARY,
-            READING_PROGRESS,
+            PROGRESS,
             QUIT
         };
 
@@ -48,20 +48,31 @@ class Simulation {
             QUIT_NOW
         };
 
+        enum e_reading_status{
+            READ = 1,
+            READING,
+            WANT_TO_READ,
+            ABANDONED
+        };
+
+        //=== Variaveis de controle do sistema
         int state;              //< Controla fluxo de estados
         bool end_loop = false;  //< Controla o loop
-        Database data;          //< Instância do banco de dados do sistema
         int option;             //< Opção de entrada no sistema
+        int menu_option;        //< Opção do menu do usuário
+        int quitting_option;    //< Opção do menu de saida
+        char save;              //< Opção de salvar ou não o livro
+
+        //=== Variaveis de manipulação de dados
+        Database data;          //< Instância do banco de dados do sistema
         int user;               //< ID so usuário que está usando o sistema
         std::string username;   //< Nome no usuário no login
         std::string password;   //< Senha do usuário no login
         std::string name;       //< Nome de susuário nahora do cadastro
-        int menu_option;        //< Opção do menu do usuário
-        int quitting_option;    //< Opção do menu de saida
         std::string title;      //< Titulo do livro buscado
         int book;               //< Armazena o ide do livro que foi encontrado em uma busca
-        char save;              //< Opção de salvar ou não o livro
-
+        int reading_status;     //< Indica o estado de leitura informado peleo usuário
+        
 
     public:
         void initialize();

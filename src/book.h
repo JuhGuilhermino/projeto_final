@@ -14,17 +14,25 @@
 
 class Book {
     private:
+        enum e_reading_status{
+            READ = 1,
+            READING,
+            WANT_TO_READ,
+            ABANDONED
+        };
+
         int id;                           //< Número de identificação
         std::string title;                //< Título do livro
         std::string author;               //< Autor(a) do livro
         std:: string  publishing_company; //< Editora do livro
         int edition_year;                 //< Ano dessa edição do livro
         int num_pages;                    //< Nº de páginas
-        float stars;                      //< Média da avaliação dos leitores
+        int stars;                        //< Média da avaliação dos leitores
         int qtd_read;                     //< Nº de leitores que salvaram como "lido"
         int qtd_reading;                  //< Nº de leitores que salvaram como "lendo"
         int qtd_want_to_read;             //< Nº de leitores que salvaram como "quero ler"
         int qtd_abandoned;                //< Nº de leitores que salvaram como "abandonado"
+        int sum_read_stars = 0;           //< Soma de todas as entrelas avaliadas
         
     public:
         Book(int m_id, 
@@ -62,6 +70,10 @@ class Book {
         int get_qtd_want_to_read();
 
         int get_qtd_abandonad();
+
+        void update_status(int status);
+
+        void update_stars(int stars);
 
 };
 

@@ -60,3 +60,15 @@ int Book::get_qtd_abandonad(){
     return qtd_abandoned;
 }
 
+void Book::update_status(int status){
+    if(status == e_reading_status::READ){
+        qtd_read++;
+    } else if(status == e_reading_status::READING){
+        qtd_reading=34;
+    } else if(status == e_reading_status::WANT_TO_READ){
+        qtd_want_to_read++;
+    } else if(status == e_reading_status::ABANDONED){
+        qtd_abandoned++;
+    }
+}
+

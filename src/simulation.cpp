@@ -42,7 +42,12 @@ void Simulation::process_events(){
         std::cin >> save;
 
     } else if (state == e_states::SAVING){
+        std::cin >> reading_status;
 
+    } else if (state == e_states::READING_PROGRESS){
+        
+    } else if (state == e_states::LIBRARY){
+        
     } else if (state == e_states::QUITTING){
         std::cin >> quitting_option;
         
@@ -104,10 +109,10 @@ void Simulation::update(){
             state = e_states::SEARCHING;
 
         } else if (menu_option == e_menu_option::SEARCH_LIBRARY){
-            end_loop = true;
+            state = e_states::LIBRARY;
 
-        } else if (menu_option == e_menu_option::READING_PROGRESS){
-            end_loop = true;
+        } else if (menu_option == e_menu_option::PROGRESS){
+            state = e_states::READING_PROGRESS;
 
         } else if (menu_option == e_menu_option::QUIT){
             state = e_states::QUITTING;
@@ -138,11 +143,26 @@ void Simulation::update(){
             // Continua na mesma página
             std::cout << "\n ERRO: operação inválida!\n";
         }
-        
+    
 
     } else if (state == e_states::SAVING){
-        end_loop = true;
 
+        // Adiciona livro na biblioteca pessoal
+        data.get_user(user).add_book(book, reading_status, data.get_book(book).get_num_pages(), 0);
+
+        std::cout << data.get_user(user).library_size();
+        
+        // Atualiza estatísticas do livro
+        data.get_book(book).update_status(reading_status);
+
+        // Retorna ao perfil
+        state = e_states::PROFILE;
+        
+
+    } else if (state == e_states::READING_PROGRESS){
+        end_loop = true;
+    } else if (state == e_states::LIBRARY){
+        end_loop = true;
     } else if (state == e_states::QUITTING){
         if (quitting_option == e_quitting_option::STAY){
             // Atualiza estado para 
@@ -188,12 +208,7 @@ void Simulation::render(){
         std::cout << "                           PERFIL                               \n";
         std::cout << "----------------------------------------------------------------\n";
         std::cout << "USUÁRIO(A): " << data.get_user(user).get_name() << "\n";
-        std::cout << "LIVROS SALVOS: " << data.get_user(user).library_size() << "\n";
-        std::cout << "STATUS DA SUA BIBLIOTECA\n";
-        std::cout << "  [" << data.get_user(user).get_qtd_read() << "] - livros lidos.\n";
-        std::cout << "  [" << data.get_user(user).get_qtd_reading() << "] - livros lendo.\n";
-        std::cout << "  [" << data.get_user(user).get_qtd_want_to_read() << "] - livros que quero ler.\n";
-        std::cout << "  [" << data.get_user(user).get_qtd_abandoned() << "] - livros abandonados.\n";
+        std::cout << "LIVROS SALVOS: " << data.get_user(user).library.size() << "\n";
         std::cout << "MENU\n";
         std::cout << "  1 - Buscar livro no acervo.\n";
         std::cout << "  2 - Buscar livro na biblioteca pessoal.\n";
@@ -207,15 +222,27 @@ void Simulation::render(){
         std::cout << "Informe o nome do livro: ";
 
     } else if (state == e_states::VIEW_BOOK){
-        std::cout << "---\nTÍTULO: " << data.get_book(book).get_title() << "\n";
+        std::cout << "----------------------------------------------------------------\n";
+        std::cout << "TÍTULO: " << data.get_book(book).get_title() << "\n";
         std::cout << "AUTOR(A): " << data.get_book(book).get_author() << "\n";
         std::cout << "EDITORA: " << data.get_book(book).get_publishing_company() << "\n";
         std::cout << "ANO DA EDIÇÃO: " << data.get_book(book).get_edition_year() << "\n";
         std::cout << "Nº DE PÁGINAS: " << data.get_book(book).get_num_pages() << "\n";
-        std::cout << "---\nDeseja salvar o livro na sua biblioteca? (S/N) >>>   ";
+        std::cout << "\n\nDeseja salvar o livro na sua biblioteca? (S/N) >>>   ";
 
     } else if (state == e_states::SAVING){
+        std::cout << "----------------------------------------------------------------\n";
+        std::cout << "Informe o status de leitura do livro:\n";
+        std::cout << "   1 - Lido.\n";
+        std::cout << "   2 - Lendo.\n";
+        std::cout << "   3 - Quero ler.\n";
+        std::cout << "   4 - Abandonado.\n";
+        std::cout << ">>>   \n";
 
+    } else if (state == e_states::READING_PROGRESS){
+        
+    } else if (state == e_states::LIBRARY){
+        
     } else if (state == e_states::QUITTING){
         std::cout << "----------------------------------------------------------------\n";
         std::cout << "OPÇÕES:\n";
